@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Portfolio</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f7;
+      color: #8c8b8f;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: #eee;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      background: #000;
+      padding: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5em;
+    }
+
+    nav ul li a:hover {
+      color: #bbb;
+      transition: 0.3s;
+    }
+
+    /* Profile Section */
+    #profile {
+      text-align: center;
+      padding: 3em 1em;
+    }
+
+    #profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      margin-bottom: 1em;
+      transition: transform 0.3s;
+    }
+
+    #profile h2 {
+      color: #ffad00;
+    }
+
+
+    #profile img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Skills Section */
+    #skills {
+      padding: 3em 1em;
+    }
+
+    #skills h2 {
+      color: #8c8b8f;
+    }
+
+    .skill {
+      margin-bottom: 1.5em;
+    }
+
+    .skill-title {
+      color: #1e90ff;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+
+    .progress {
+      background: #333;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .progress-bar {
+      background: #c7c7c7;
+      height: 100%;
+      width: 0;
+      text-align: right;
+      padding-right: 0.5em;
+      line-height: 20px;
+      color: #111;
+      font-size: 0.8em;
+      border-radius: 20px 0 0 20px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Animate bars on load */
+    .progress-bar[data-width] {
+      width: attr(data-width percentage);
+    }
+    .progress-bar.html { width: 90%; }
+    .progress-bar.css { width: 85%; }
+    .progress-bar.js { width: 70%; }
+
+    /* Projects Section */
+    #projects {
+      padding: 3em 1em;
+    }
+
+    #projects h2 {
+      color: #8c8b8f;
+    }
+
+    #projects h3 {
+      color: #1e90ff;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2em;
+    }
+
+    .project {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.8);
+    }
+
+    .project img {
+      width: 100%;
+      display: block;
+      border-bottom: 2px solid #333;
+    }
+
+    .project-content {
+      padding: 1em;
+    }
+
+    .project-content h3 {
+      margin-top: 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1em 1em;
+      border-top: 1px solid #333;
+      background: #000;
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <h1>Vinrar's Portfolio</h1>
+        <ul>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Profile Section -->
+  <section id="profile">
+    <div class="container">
+      <img src="profile.jpg" alt="Profile Picture">
+      <h2>VINRAR</h2>
+      <p>A passionate web developer who loves building clean and responsive designs.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skill">
+        <div class="skill-title">HTML</div>
+        <div class="progress"><div class="progress-bar html">90%</div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-title">CSS</div>
+        <div class="progress"><div class="progress-bar css">85%</div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-title">JavaScript</div>
+        <div class="progress"><div class="progress-bar js">70%</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project">
+          <img src="project.jpg" alt="Project 1">
+          <div class="project-content">
+            <h3>Project 1</h3>
+            <p>A modern landing page built with HTML and CSS.</p>
+          </div>
+        </div>
+        <div class="project">
+          <img src="project.jpg" alt="Project 2">
+          <div class="project-content">
+            <h3>Project 2</h3>
+            <p>A responsive portfolio website showcasing creative design.</p>
+          </div>
+        </div>
+        <div class="project">
+          <img src="project.jpg" alt="Project 3">
+          <div class="project-content">
+            <h3>Project 3</h3>
+            <p>An interactive gallery with hover effects and clean grid layout.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Vinrar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
